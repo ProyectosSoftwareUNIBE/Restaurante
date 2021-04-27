@@ -10,6 +10,7 @@ export class ItemService {
     constructor() {
         this.entradas = [
             {
+                id: '1',
                 name: 'pan de ajo',
                 description: 'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...',
                 imageURL: 'https://www.superama.com.mx/views/micrositio/recetas/images/comidaitaliana/pandeajo/Web_fotoreceta.jpg'
