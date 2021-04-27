@@ -1,20 +1,17 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" class="vertical-center">
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+    <ion-card class="background">
+        <ion-img src="https://mihistoriauniversal.com/wp-content/uploads/coliseo-romano-imperio-roma.jpg"></ion-img>
+        <ion-card-header>
+
+
+            <ion-card-title>Ingrese sus datos</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+            <ion-input placeholder="Email" [(ngModel)]="user.email"></ion-input>
+            <ion-input placeholder="*****" type="password" [(ngModel)]="user.password"></ion-input>
+            <ion-button shape="round" color="primary" (click)="login()" expand="full">Ingresar</ion-button>
+        </ion-card-content>
+    </ion-card>
 </ion-content>
