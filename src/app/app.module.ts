@@ -8,6 +8,7 @@ import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing.module';
 import {AuthService} from 'src/app/api/auth.service';
 import {ItemService} from 'src/app/api/item.service';
+import {ShoppingCartService} from 'src/app/api/shopping-cart.service';
 
 @NgModule({
     declarations: [AppComponent],
@@ -16,7 +17,8 @@ import {ItemService} from 'src/app/api/item.service';
     providers: [
         {provide: RouteReuseStrategy, useClass: IonicRouteStrategy},
         AuthService,
-        ItemService
+        ItemService,
+        ShoppingCartService
     ],
     bootstrap: [AppComponent],
 })
