@@ -12,8 +12,16 @@ const routes: Routes = [
         loadChildren: () => import('../entrada/entrada.module').then(m => m.EntradaPageModule)
       },
       {
-        path: 'tab2',
+        path: 'maincourses',
         loadChildren: () => import('../platos-fuertes/platos-fuertes.module').then(m => m.PlatosFuertesPageModule)
+      },
+      {
+        path: 'drinks',
+        loadChildren: () => import('../platos-fuertes/platos-fuertes.module').then(m => m.PlatosFuertesPageModule)
+      },
+      {
+        path: 'shoppingcart',
+        loadChildren: () => import('../shopping-cart/shopping-cart.module').then(m => m.ShoppingCartPageModule)
       },
       {
         path: '',

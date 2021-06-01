@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Tu canasta</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let shoppinCartItem of shoppingCart;let position=index">
+      <ion-thumbnail slot="start">
+        <img src="{{shoppinCartItem.item.imageURL}}">
+      </ion-thumbnail>
+      <ion-label>
+
+        <h3>{{shoppinCartItem.item.name}}</h3>
+        <p>{{shoppinCartItem.amount}}</p>
+        <b>${{shoppinCartItem.amount * shoppinCartItem.item.price}}</b>
+
+        <div></div>
+        <ion-button color="warning" expand="full" (click)="delete(position)">
+          <ion-icon name="trash-outline"></ion-icon>
+        </ion-button>
+
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
