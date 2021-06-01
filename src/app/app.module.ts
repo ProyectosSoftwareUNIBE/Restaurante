@@ -9,18 +9,20 @@ import {AppRoutingModule} from './app-routing.module';
 import {AuthService} from 'src/app/api/auth.service';
 import {ItemService} from 'src/app/api/item.service';
 import {ShoppingCartService} from 'src/app/api/shopping-cart.service';
+import {NativeStorage} from '@ionic-native/native-storage/ngx';
 
 @NgModule({
-    declarations: [AppComponent],
-    entryComponents: [],
-    imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
-    providers: [
-        {provide: RouteReuseStrategy, useClass: IonicRouteStrategy},
-        AuthService,
-        ItemService,
-        ShoppingCartService
-    ],
-    bootstrap: [AppComponent],
+  declarations: [AppComponent],
+  entryComponents: [],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
+  providers: [
+    {provide: RouteReuseStrategy, useClass: IonicRouteStrategy},
+    AuthService,
+    ItemService,
+    ShoppingCartService,
+    NativeStorage
+  ],
+  bootstrap: [AppComponent],
 })
 export class AppModule {
 }

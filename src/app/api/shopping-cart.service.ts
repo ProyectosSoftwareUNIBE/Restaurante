@@ -16,6 +16,10 @@ export class ShoppingCartService {
     console.log(this.shoppingCart);
   }
 
+  deleteProduct(position: number): void {
+    this.shoppingCart.splice(position, 1);
+  }
+
   getShoppingCart(): ShoppingHelpModel {
     let money = 0;
     let response: ShoppingHelpModel = {};
@@ -26,6 +30,10 @@ export class ShoppingCartService {
     });
     response = {total: money, items: itemsShoppingCart};
     return response;
+  }
+
+  getShoppingCartDetail(): ShoppingItemModel[] {
+    return this.shoppingCart;
   }
 
 }
