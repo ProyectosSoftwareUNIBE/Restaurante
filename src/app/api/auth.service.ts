@@ -12,7 +12,7 @@ export class AuthService {
   }
 
   login(user: UserModel): boolean {
-    if (user.email === 'test@test.com' && user.password === '12345') {
+    if (user.name === 'test@test.com' && user.password === '12345') {
       this.nativeStorage.setItem('myitem', {property: 'value', anotherProperty: 'anotherValue'})
         .then(
           () => console.log('Stored item!'),

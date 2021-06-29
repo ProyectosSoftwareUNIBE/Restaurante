@@ -1,7 +1,7 @@
-import {Component, OnInit} from '@angular/core';
-import {ItemService} from 'src/app/api/item.service';
-import {ItemModel} from 'src/app/model/item.model';
-import {Router} from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ItemService } from 'src/app/service/item.service';
+import { ItemModel } from 'src/app/model/item.model';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-entrada',
@@ -19,8 +19,12 @@ export class EntradaPage implements OnInit {
     }
 
     synch(): void {
-        this.entradas = this.itemService.getAll();
-        console.log(this.entradas);
+        this.itemService.getByCategory('entradas').subscribe(
+            response => {
+                this.entradas = response;
+                console.log(response);
+            }
+        );
     }
 
     navigateToDetail(id: string): void {

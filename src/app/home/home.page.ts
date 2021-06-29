@@ -1,8 +1,9 @@
-import {Component} from '@angular/core';
-import {UserModel} from 'src/app/model/user.model';
-import {AlertController} from '@ionic/angular';
-import {Router} from '@angular/router';
-import {AuthService} from 'src/app/api/auth.service';
+import { Component } from '@angular/core';
+import { UserModel } from 'src/app/model/user.model';
+import { AlertController } from '@ionic/angular';
+import { Router } from '@angular/router';
+import { AuthService } from '../service/auth.service';
+import { NativeStorage } from '@ionic-native/native-storage/ngx';
 
 @Component({
     selector: 'app-home',
@@ -12,28 +13,40 @@ import {AuthService} from 'src/app/api/auth.service';
 export class HomePage {
     user: UserModel = {};
 
-    constructor(public alertController: AlertController, private router: Router, private authService: AuthService) {
+    constructor(public alertController: AlertController, private router: Router, private authService: AuthService, private nativeStorage: NativeStorage) {
     }
 
-    async presentAlert() {
+    async presentAlert(messageString: string) {
         const alert = await this.alertController.create({
             cssClass: 'my-custom-class',
             header: 'Alert',
-            message: 'Los datos ingresados no son los correctos',
+            message: messageString,
             buttons: ['OK']
         });
         await alert.present();
 
-        const {role} = await alert.onDidDismiss();
+        const { role } = await alert.onDidDismiss();
         console.log('onDidDismiss resolved with role', role);
     }
 
     login(): void {
-        if (this.authService.login(this.user)) {
-            this.router.navigate(['/tabs']);
-        } else {
-            this.presentAlert();
-        }
+        this.authService.login(this.user).subscribe(
+            response => {
+                this.nativeStorage.setItem('myitem', { name: response.name })
+                    .then(
+                        () => this.router.navigate(['/tabs']),
+                        error => {
+                            this.router.navigate(['/tabs'])
+                            console.error('Error storing item', error)
+                        }
+                    );
+
+            }, error => {
+                this.presentAlert(error.error.message);
+            }
+
+
+        )
 
 
     }
