@@ -8,13 +8,13 @@ import { UserModel } from '../model/user.model';
 })
 export class AuthService {
 
-  private api = 'http://localhost:3000/auth/login'
+  private api = 'http://localhost:3000/auth/login';
 
   constructor(private http: HttpClient) { }
 
   login(user: UserModel): Observable<any> {
     return this.http.post(this.api, user).pipe(
-      response=>response
+      response => response
     )
   }
 }

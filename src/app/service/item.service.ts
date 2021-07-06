@@ -7,11 +7,18 @@ import { ItemModel } from '../model/item.model';
 })
 export class ItemService {
 
-  private api = 'http://localhost:3000/product'
+  private api = 'http://localhost:3000/product';
 
   constructor(private http: HttpClient) { }
+
   getByCategory(category: string): Observable<any> {
     return this.http.get(this.api + '/category/' + category).pipe(
+      response => response
+    )
+  }
+
+  getById(id: string): Observable<any> {
+    return this.http.get(this.api + "/" + id).pipe(
       response => response
     )
   }

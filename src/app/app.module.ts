@@ -7,9 +7,9 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ItemService } from './service/item.service';
-import { ShoppingCartService } from 'src/app/api/shopping-cart.service';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { AuthService } from './service/auth.service';
+import { ShoppingCartService } from './service/shopping-cart.service';
 
 @NgModule({
   declarations: [AppComponent],

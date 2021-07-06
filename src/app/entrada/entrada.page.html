@@ -7,7 +7,7 @@
 
 <ion-content>
     <ion-list>
-        <ion-item *ngFor="let entrada of entradas" (click)="navigateToDetail(entrada.id)">
+        <ion-item *ngFor="let entrada of entradas" (click)="navigateToDetail(entrada)">
             <ion-thumbnail slot="end">
                 <img src="{{entrada.imageUrl}}">
             </ion-thumbnail>

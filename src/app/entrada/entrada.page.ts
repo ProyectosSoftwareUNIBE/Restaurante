@@ -27,8 +27,9 @@ export class EntradaPage implements OnInit {
         );
     }
 
-    navigateToDetail(id: string): void {
-        this.rout.navigate(['/item-detail/' + id]);
+    navigateToDetail(item: ItemModel): void {
+
+        this.rout.navigate(['/item-detail/' + item._id]);
     }
 
 }
