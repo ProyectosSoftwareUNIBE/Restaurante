@@ -8,7 +8,7 @@ import { UserModel } from '../model/user.model';
 })
 export class AuthService {
 
-  private api = 'http://localhost:3000/auth/login';
+  private api = 'https://api-restuarante.herokuapp.com/auth/login';
 
   constructor(private http: HttpClient) { }
 

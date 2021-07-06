@@ -7,7 +7,7 @@ import { ItemModel } from '../model/item.model';
 })
 export class ItemService {
 
-  private api = 'http://localhost:3000/product';
+  private api = 'https://api-restuarante.herokuapp.com/product';
 
   constructor(private http: HttpClient) { }
 

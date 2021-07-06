@@ -9,7 +9,7 @@ import { ShoppingHelpModel } from '../model/shopping-help.model';
 })
 export class ShoppingCartService {
   private shoppingCart: ShoppingItemModel[] = [];
-  private api = 'http://localhost:3000/shopping-cart';
+  private api = 'https://api-restuarante.herokuapp.com/shopping-cart';
   constructor(private http: HttpClient) {
   }
 
